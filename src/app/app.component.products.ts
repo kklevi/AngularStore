@@ -48,7 +48,7 @@ export class AppProducts{
     }
     createCart(): void{
         this.cart = new Cart(new Array<CartItem>());
-        this.cart.addCartItem(new CartItem(new Product(10, 100, "cat", "this is very fluffy, be carful"), 1));
+        this.cart.addCartItem(new CartItem(new Product(10, 100, "cat", "this is very fluffy, be carful"), 2));
     }
     ngOnInit() {
         this.getProducts();

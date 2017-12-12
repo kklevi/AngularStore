@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from "@angular/forms";
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { CartModule } from './app.module.cart';
 import { AppCart } from './app.component.cart';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { AppCart } from './app.component.cart';
   ],
   imports: [
     BrowserModule,
-    CartModule
+    CartModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
