@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
         Welcome to {{title}}!
       </h1>
     </div>
-
+    
     <app-products></app-products>
   `,
   styles: []

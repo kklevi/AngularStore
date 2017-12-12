@@ -20,7 +20,13 @@ export class AppProductDetails{
     @Output()
     deleteProduct = new EventEmitter<Product>();
 
+    @Output()
+    addToCart = new EventEmitter<Product>();
+
     requestDelete(){
         this.deleteProduct.emit(this.product);
+    }
+    requestAddToCart(){
+        this.addToCart.emit(this.product);
     }
 }
