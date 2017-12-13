@@ -28,6 +28,8 @@ import "rxjs/Rx";
                 (addToCart)="add($event)">
             </app-productDetails>
         </div>
+        <product-form (submit)="newProduct($event)">
+        </product-form>
     `,
     styles: [`div{
                 border-style: solid; 
@@ -37,18 +39,19 @@ import "rxjs/Rx";
             }`]
 })
 export class AppProducts{
-    products: Observable<Product>;
+    products$: Observable<Product[]>;
     cart: Cart;
 
     constructor(private productService: ProductService) { }
 
     //get products after contructor is called
     getProducts(): void{
-        this.products = this.productService.getProducts();
+        this.products$ = this.productService.getProducts();
     }
     createCart(): void{
         this.cart = new Cart(new Array<CartItem>());
-        this.cart.addCartItem(new CartItem(new Product(10, 100, "cat", "this is very fluffy, be carful"), 2));
+        this.cart.addCartItem(new CartItem(
+            new Product(10, 100, "cat", "this is very fluffy, be carful"), 2));
     }
     ngOnInit() {
         this.getProducts();
@@ -59,7 +62,7 @@ export class AppProducts{
     
 
     delete(product: Product){
-        this.products.filter(p => p === product);
+//        this.products$.filter(p => p === product);
     }
     add(product: Product){
         var index = this.cart.getCartItems().findIndex((c) => c.product === product);
@@ -69,5 +72,9 @@ export class AppProducts{
         }else{
             this.cart.getCartItems()[index].quantity++;
         }
+    }
+    newProduct(product: Product){
+        console.log(product.id);
+        this.products$.merge([product]);
     }
 }

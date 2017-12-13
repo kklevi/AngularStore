@@ -9,6 +9,7 @@ import { AppProductDetails } from './app.component.productDetails';
 import { ProductService } from './app.service.ProductService';
 import { CartModule } from './app.module.cart';
 import { AppCart } from './app.component.cart';
+import { ProductForm } from './productForm.component';
 
 
 
@@ -16,7 +17,8 @@ import { AppCart } from './app.component.cart';
   declarations: [
     AppComponent,
     AppProducts,
-    AppProductDetails
+    AppProductDetails,
+    ProductForm
   ],
   imports: [
     BrowserModule,

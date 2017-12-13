@@ -1,0 +1,15 @@
+<form #productForm="ngForm" (ngSubmit)="submit(productForm)">
+    <label>
+        id <input type="text" name="id" ngModel>
+    </label>
+    <label>
+        price <input type="text" name="price" ngModel>
+    </label>
+    <label>
+        name <input type="text" name="name" ngModel>
+    </label>
+    <label>
+        description <input type="text" name="description" ngModel>
+    </label>
+    <button>Create</button>
+</form>
